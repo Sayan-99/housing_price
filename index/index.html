@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Prices</title>
+    <style>
+        .title{
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .title h2{
+            color: darkblue;
+            font-size: 40px;
+        }
+        .button{
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .btn{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .output{
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h2>Housing Price Prediction</h2>
+    </div>
+    <div class="main">
+        <form action="{{ url_for('predict')}}" method="POST">
+            <div class="button">
+                Lot size in square feet: <input type="number" required = 'required'>
+                <br>
+                <br>
+                Year Built : <input type="number" required = 'required'>
+                <br>
+                <br>
+                First Floor square feet : <input type="number" required = 'required'>
+                <br>
+                <br>
+                Second floor square feet : <input type="number" required = 'required'>
+                <br>
+                <br>
+                Number of Bathrooms : <input type="number" required = 'required'>
+                <br>
+                <br>
+                Number of Bedrooms : <input type="number" required = 'required'>
+                <br>
+                <br>
+                Total rooms (does not include bathrooms) : <input type="number" required = 'required'>
+                <br>
+                <br>
+            </div>
+            <div class="btn">
+                <input type="button" value="Predict">
+            </div>
+        </form>
+        <br>
+        <br>
+        <br>
+        <div class="output">
+            {{prediction_text}}
+        </div>
+    </div>
+</body>
+</html>
